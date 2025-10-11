@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="AVoCaDO: An Audiovisual Video Captioner Driven by Temporal Orchestration - AUTHOR_NAMES">
+  <meta name="description" content="In this paper, we present AVoCaDO, a powerful AudioVisual video Captioner Driven by the temporal Orchestration between audio and visual modalities.">
+  <meta name="keywords" content="avocado, audiovisual, caption, captioner">
+  <meta name="author" content="Xinlong Chen, Yue Ding, Weihong Lin, Jingyun Hua, Linli Yao, Yang Shi, Bozhou Li, Yuanxing Zhang, Qiang Liu, Pengfei Wan, Liang Wang, Tieniu Tan">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Kling Team, Kuaishou Technology">
+  <meta property="og:title" content="AVoCaDO: An Audiovisual Video Captioner Driven by Temporal Orchestration">
+  <meta property="og:description" content="In this paper, we present AVoCaDO, a powerful AudioVisual video Captioner Driven by the temporal Orchestration between audio and visual modalities.">
+  <meta property="og:url" content="https://avocado-captioner.github.io/">
+  <meta property="article:author" content="Xinlong Chen">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="avocado">
+  <meta property="article:tag" content="audiovisual">
+  <meta property="article:tag" content="caption">
+  <meta property="article:tag" content="captioner">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <title>AVoCaDO: An Audiovisual Video Captioner Driven by Temporal Orchestration - Xinlong Chen, Yue Ding, Weihong Lin, Jingyun Hua, Linli Yao, Yang Shi, Bozhou Li, Yuanxing Zhang, Qiang Liu, Pengfei Wan, Liang Wang, Tieniu Tan</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/avocado.ico">
+  <link rel="apple-touch-icon" href="static/images/avocado.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+</head>
+<body>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <!-- <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list"> -->
+        <!-- <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank"> -->
+          <!-- <div class="work-info"> -->
+            <!-- <h5>Paper Title 1</h5> -->
+            <!-- <p>Brief description of the work and its main contribution.</p> -->
+            <!-- <span class="work-venue">Conference/Journal 2024</span> -->
+          <!-- </div> -->
+          <!-- <i class="fas fa-external-link-alt"></i> -->
+        <!-- </a> -->
+        <!-- <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 2</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Paper Title 3</h5>
+            <p>Brief description of the work and its main contribution.</p>
+            <span class="work-venue">Conference/Journal 2023</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div> -->
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><img src="static/images/avocado.svg" alt="AVoCaDO icon" class="title-icon">AVoCaDO: An <u>A</u>udio<u>V</u>isual Vide<u>o</u> <u>Ca</u>ptioner <u>D</u>riven by Temporal <u>O</u>rchestration</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Xinlong Chen<sup style="color: var(--avocado-green-dark);">2,3,1*</sup>,</span>
+                <span class="author-block">
+                  Yue Ding<sup style="color: var(--avocado-green-dark);">2,3</sup>,</span>
+                  <span class="author-block">
+                    Weihong Lin<sup style="color: var(--avocado-green-dark);">1</sup>,</span>
+                    <span class="author-block">
+                      Jingyun Hua<sup style="color: var(--avocado-green-dark);">1</sup>,</span>
+                      <span class="author-block">
+                        Linli Yao<sup style="color: var(--avocado-green-dark);">4</sup>,</span>
+                        <span class="author-block">
+                          Yang Shi<sup style="color: var(--avocado-green-dark);">4</sup>,</span>
+                          <span class="author-block">
+                            Bozhou Li<sup style="color: var(--avocado-green-dark);">4</sup>,</span>
+                            <span class="author-block">
+                              Yuanxing Zhang<sup style="color: var(--avocado-green-dark);">1</sup>,</span>
+                              <span class="author-block">
+                                Qiang Liu<sup style="color: var(--avocado-green-dark);">2,3†</sup>,</span>
+                                <span class="author-block">
+                                  Pengfei Wan<sup style="color: var(--avocado-green-dark);">1</sup>,</span>
+                                  <span class="author-block">
+                                    Liang Wang<sup style="color: var(--avocado-green-dark);">2,3</sup>,</span>
+                                    <span class="author-block">
+                                      Tieniu Tan<sup style="color: var(--avocado-green-dark);">2,3,5</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-6 publication-authors">
+                    <span class="author-block"><sup style="color: var(--avocado-green-dark);">1</sup>Kling Team, Kuaishou Technology<br>
+                      <sup style="color: var(--avocado-green-dark);">2</sup>New Laboratory of Pattern Recognition (NLPR), Institute of Automation, Chinese Academy of Sciences (CASIA)<br>
+                      <sup style="color: var(--avocado-green-dark);">3</sup>School of Artificial Intelligence, University of Chinese Academy of Sciences<br>
+                      <sup style="color: var(--avocado-green-dark);">4</sup>Peking University <sup style="color: var(--avocado-green-dark);">5</sup>Nanjing University
+                    </span>
+                    <br>
+                    <span class="eql-cntrb"><small><br><sup style="color: var(--avocado-green-dark);">*</sup>This work was conducted during the author's internship at Kling Team, Kuaishou Technology</small></span>
+                    <span class="eql-cntrb"><small><br><sup style="color: var(--avocado-green-dark);">†</sup>Corresponding author: <a href="mailto:qiang.liu@nlpr.ia.ac.cn">qiang.liu@nlpr.ia.ac.cn</a></small></span>
+                  </div>
+
+                  <!-- TODO: Update with your arXiv paper ID -->
+                  <span class="link-block">
+                    <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/AVoCaDO-Captioner/AVoCaDO" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://huggingface.co/AVoCaDO-Captioner/AVoCaDO" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                    </span>
+                    <span>Model</span>
+                  </a>
+                </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Audiovisual video captioning aims to generate semantically rich descriptions with temporal alignment between visual and auditory events, thereby benefiting both video understanding and generation. In this paper, we present <b>AVoCaDO</b>, a powerful <u>A</u>udio<u>V</u>isual vide<u>o</u> <u>Ca</u>ptioner <u>D</u>riven by the temporal <u>O</u>rchestration between audio and visual modalities. We propose a two-stage post-training pipeline: (1) <b>AVoCaDO SFT</b>, which fine-tunes the model on a newly curated dataset of 107K high-quality, temporally-aligned audiovisual captions; and (2) <b>AVoCaDO GRPO</b>, which leverages tailored reward functions to further enhance temporal coherence and dialogue accuracy while regularizing caption length and reducing collapse. Experimental results demonstrate that AVoCaDO significantly outperforms existing open-source models across four audiovisual video captioning benchmarks, and also achieves competitive performance on the VDC and DREAM-1K benchmark under visual-only settings.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Captioning Case of AVoCaDO</h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+        <source src="static/videos/case_1.mp4" type="video/mp4">
+      </video>
+      <h2 class="is-6 has-text-left">
+      <!-- <details>
+        <summary>
+          <span style="color: var(--avocado-green-dark); font-weight: bold;">
+            Click to view the full generated caption<br>
+          </span>
+          The audio begins with the loud, enthusiastic sound of a crowd cheering and clapping... The man with the beard speaks with a friendly and slightly breathless tone, "Alright, guys... The video transitions to a black screen with a framed video window. Inside the window, a bald man with glasses and a black shirt is shown sitting in front of a red curtain, smiling...
+        </summary>
+        <hr>
+        <span style="color: var(--avocado-green-dark); font-weight: bold;">
+          Full caption:<br>
+        </span> -->
+      <details class="caption-details">
+          <summary class="caption-summary">
+            <div class="summary-content">
+              <span class="summary-title">Click to view the full generated caption</span>
+              <span class="summary-excerpt">The audio begins with the loud, enthusiastic sound of a crowd cheering and clapping... The man with the beard speaks with a friendly and slightly breathless tone, "Alright, guys... The video transitions to a black screen with a framed video window. Inside the window, a bald man with glasses and a black shirt is shown sitting in front of a red curtain, smiling...</span>
+            </div>
+            <div class="summary-icon"></div>
+          </summary>
+          <div class="caption-full-text">
+            <p><span style="color: var(--avocado-green-dark); font-weight: bold;">
+              Full caption:<br></p>
+        The audio begins with the loud, enthusiastic sound of a crowd cheering and clapping. A man with a deep, energetic voice exclaims, "Give it up for Marlon Wayans!" The crowd's applause and excited shouts continue in the background. The video opens with a medium shot of two men standing in the center of a crowd outdoors. The man on the left, who is Black and wearing a light blue button-down shirt and sunglasses, gestures with his hands as he speaks. The man on the right, who is white with a beard and sunglasses, wears a black polo shirt and gestures emphatically with his hands while looking at the other man. The crowd, a mix of men and women, surrounds them, clapping and watching with interest. The setting is a bright, sunny day in what appears to be an urban plaza, with palm trees and buildings visible in the background. A red banner with white text is partially visible on the left. The camera remains steady, capturing the interaction between the two main subjects and the engaged audience.<br><br>
+        The man with the beard speaks with a friendly and slightly breathless tone, "Alright, guys. So, it's hot. I want to do a trick with some money. You got your wallet?" The man in the blue shirt replies calmly, "Yeah, I got my wallet." "Alright, let me see it," the bearded man requests. "Alright," the other man agrees. The bearded man continues in a confident, instructional voice, "Cuz usually anytime you you grab money or... Wow. Okay, yeah. Alright, let's just do this. Anytime you grab for money, the number one thing when a magician grabs a dollar bill, what do they say?" The man in the blue shirt responds with a slightly confused and humorous tone, "I don't know, bro. I know a brother said, 'Give me my money back.'" The bearded man laughs lightly and continues, "Okay. Well, I tell you what, a lot of people say, 'Can you take that one and turn it into a hundred?'" "Okay," the other man agrees. "I'm not that good," the bearded man concedes. "So what I tell people is if you can just cut your expectation in half, I'll blow you away. So when I say in half, I literally mean in half. And we can take that one and turn it into a fifty." The camera zooms in for a close-up on the hands of the man in the black shirt. He holds a small, folded fifty-dollar bill between his fingers, displaying it to the crowd. The faces of the onlookers, including a woman with long dark hair, are visible in the blurred background, looking on with curiosity. The man unfolds the bill, revealing it to be a single dollar bill. He then folds it in half, and then in half again, demonstrating the size difference. The camera angle shifts slightly, showing the man continuing to manipulate the dollar bill, folding it into an even smaller rectangle. The crowd remains in the background, their faces a mix of anticipation and excitement. "See what I mean?" "Wow, that works," the man in the blue shirt says, sounding impressed. "Well, but but you still want to see the hundred, right?" the bearded man asks, his voice full of energy. "Yes," the other man confirms. "Cuz everybody wants to see the hundred. So that's when you take it this way, and sure enough, my man, we can take the one into a fifty into a hundred. You and I need to go into business together, man. Let's do it." The camera pulls back to the original medium shot. The man in the black shirt, now holding the folded dollar bill, gestures towards the man in the blue shirt. The crowd erupts in cheers and applause, with many people raising their hands and clapping enthusiastically. The man in the blue shirt smiles and gestures with open hands, looking pleased. The bearded man exclaims, "Take a dollar! Take a dollar! Take a dollar to a hundred! We're gonna be rich! Take a dollar! We're gonna be rich!" The crowd's cheers and applause swell in response. The man in the black shirt then turns and moves through the cheering crowd, who are now clapping and celebrating. The man in the blue shirt remains in the center, smiling and gesturing towards the camera. The bearded man continues to interact with the audience, pointing and gesturing energetically. The scene is filled with the sounds of celebration and excitement.<br><br>
+        The video transitions to a black screen with a central, framed video window. Inside the window, a bald man with glasses and a black shirt is shown sitting in front of a red curtain, smiling and speaking directly to the camera. To the left of the window, the text "EPISODES & CLIPS" and "WATCH MORE" appears. Below the window, the word "SUBSCRIBE" is displayed. The background is dark with subtle, sparkling light effects. The audio then transitions to a different man speaking in a friendly and upbeat voice, as if addressing an online audience. "Hey YouTube, thanks for watching. If you like this and you want to see a lot more, all you got to do is click right here to subscribe." The man in the video window gestures with his hand as he speaks, concluding his message. The on-screen text and graphics remain the same.
+    </details>
+    </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+
+<!-- AVoCaDO SFT-->
+<section class="hero teaser is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">AVoCaDO SFT</h2>
+      <figure class="tight-figure">
+        <img src="static/images/avocado_sft.png" alt="AVoCaDO SFT" style="max-width: 100%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        <b>Figure 1:</b> The pipeline for generating high-quality temporally-aligned audiovisual video captions. For clarity, corresponding audio-visual events before and after fusion are marked with circled numbers and underlined for reference.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End AVoCaDO SFT -->
+
+
+<!-- AVoCaDO GRPO-->
+<section class="hero teaser is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">AVoCaDO GRPO</h2>
+      <figure class="tight-figure">
+        <img src="static/images/avocado_grpo.png" alt="AVoCaDO GRPO" style="max-width: 100%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        <b>Figure 2:</b> Illustration of the three rewards \(R_C\), \(R_D\), and \(R_L\), which are specifically designed for improving the quality of audiovisual video captioning.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End AVoCaDO GRPO -->
+
+
+<!-- Evaluation -->
+<section class="hero is-small is-light">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h2 class="title is-3">Experimental Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/direct_eval.png" alt="Direct evaluation" loading="lazy" style="max-width: 80%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 1:</b> Model performance on the audiovisual video captioning benchmarks. "A" and "V" refer to the audio and visual modalities, respectively. The results presented above are reproduced using the official code. Note that the video-SALMONN-2 testset originally employed GPT-3.5 as the judge model, which occasionally led to misjudgments. To ensure more reliable evaluation, we uniformly replaced it with GPT-4.1. <sup>*</sup>Concurrent works with us.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/qa_eval.png" alt="QA-base evaluation" loading="lazy" style="max-width: 40%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 2:</b> QA performance by Gemini-2.5-Pro based on textual captions. To mitigate answer guessing when the caption lacks necessary information, the model is instructed to refrain from answering such questions, which are then marked as incorrect samples.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/visual_only_eval.png" alt="Visual-only evaluation" loading="lazy" style="max-width: 60%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Table 3:</b> Model performance on the VDC Detailed subset and DREAM-1K, which evaluate captions in visual-only settings.
+       </h2>
+     </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End evaluation -->
+
+
+<!-- Ablation Studies-->
+<section class="hero teaser is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+      <h2 class="title is-3">Ablation Studies</h2>
+      <figure class="tight-figure">
+        <img src="static/images/ablation.png" alt="Ablation Studies" style="max-width: 100%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        <b>Table 4:</b> Ablation study on our post-training pipeline. "Dlg. F1" represents the metric of dialogue quality. "RepCol" indicates the ratio of generations exhibiting repetition collapse. AVoCaDO-SFT-2K<sup>*</sup> refers to the model further fine-tuned on AVoCaDO-SFT using the same 2K samples employed during the GRPO phase.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End Ablation Studies -->
+
+
+<!-- Case studies -->
+<section class="hero is-small">
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h2 class="title is-3">Additional Cases</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/case_1.png" alt="case_1" loading="lazy" style="max-width: 80%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Figure 3:</b> An illustration of a video caption generated by AVoCaDO, featuring both <b>precise audiovisual temporal alignment</b> and <u>accurate dialogue rendering</u>.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/case_2.png" alt="case_2" loading="lazy" style="max-width: 40%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Figure 4:</b> Qualitative comparison of AVoCaDO against two contemporary captioning models: video-SALMONN-2 and UGC-VideoCaptioner. Errors in baseline outputs are highlighted in <span style="color:#bd0301">red</span>; the superior coverage and precision of AVoCaDO are highlighted in <span style="color:#2e74b5">blue</span>. <span style="color:#2e74b5"><b>Correct</b></span> / <span style="color:#bd0301"><b>incorrect</b></span> <b>audiovisual temporal alignment</b> is bolded, while <u>sound effect descriptions</u> are underlined.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/case_3.png" alt="case_3" loading="lazy" style="max-width: 40%; height: auto;"/>
+        <h2 class="subtitle has-text-centered">
+          <b>Figure 5:</b> Qualitative comparison of AVoCaDO against two contemporary captioning models: video-SALMONN-2 and UGC-VideoCaptioner. Errors in baseline outputs are highlighted in <span style="color:#bd0301">red</span>; the superior coverage and precision of AVoCaDO are highlighted in <span style="color:#2e74b5">blue</span>. <span style="color:#2e74b5"><b>Correct</b></span> / <span style="color:#bd0301"><b>incorrect</b></span> <b>audiovisual temporal alignment</b> is bolded, while <u>sound effect descriptions</u> are underlined.
+       </h2>
+     </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End case studies -->
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <!-- <pre id="bibtex-code"><code>@article{YourPaperKey2024,
+  title={Your Paper Title Here},
+  author={First Author and Second Author and Third Author},
+  journal={Conference/Journal Name},
+  year={2024},
+  url={https://your-domain.com/your-project-page}
+}</code></pre> -->
+    TODO
+    </div>
+</section>
+<!--End BibTex citation -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <div style="text-align: center;">
+            <a href="https://clustrmaps.com/site/1c86f" title="ClustrMaps">
+              <img src="https://www.clustrmaps.com/map_v2.png?d=Z8pTFk2NGIdtVNt7EcXekixtjBC0kamuhJ0m1MSFqp8&cl=ffffff"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
