@@ -176,9 +176,8 @@
                     <span class="eql-cntrb"><small><br><sup style="color: var(--avocado-green-dark);">†</sup>Corresponding author: <a href="mailto:qiang.liu@nlpr.ia.ac.cn">qiang.liu@nlpr.ia.ac.cn</a></small></span>
                   </div>
 
-                  <!-- TODO: Update with your arXiv paper ID -->
                   <span class="link-block">
-                    <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                    <a href="https://arxiv.org/abs/2510.10395" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -350,6 +349,13 @@
       </figure>
       <h2 class="subtitle has-text-centered">
         <b>Table 4:</b> Ablation study on our post-training pipeline. "Dlg. F1" represents the metric of dialogue quality. "RepCol" indicates the ratio of generations exhibiting repetition collapse. AVoCaDO-SFT-2K<sup>*</sup> refers to the model further fine-tuned on AVoCaDO-SFT using the same 2K samples employed during the GRPO phase.
+      </h2>
+      <br>
+      <figure class="tight-figure">
+        <img src="static/images/ra_abla.png" alt="Ablation Studies" style="max-width: 80%; height: auto;">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        <b>Table 5:</b> Ablation study of "Refrain from Answering" (R.A.) mechanism in QA-based caption evaluation (cf. Table 2). When the judge model is not required to refrain from answering in cases where the caption lacks sufficient information, it often falls back on its internal knowledge or resorts to random guessing, leading to artificially inflated scores.
       </h2>
     </div>
   </div>
